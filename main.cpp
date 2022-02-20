@@ -12,14 +12,37 @@
 int main()
 {
   std::vector<std::string> games; // vector to store game titles
+  //std::vector<std::string>::iterator myIterator;
+  std::vector<std::string>::const_iterator iter;
+  std::string game_title;
   char input; // get player input
 
   // main menu
   std::cout << "\t\tGame Title Manager\n\n"; 
-  std::cout << "(A)Add a game title\n";
-  std::cout << "(R)Remove a game title\n";
-  std::cout << "(L)List all game titles\n";
-  std::cout << "\nInput: ";
-  std::cin >> input;
-  input = std::toupper(input);
+  std::cout << "(A) Add a game title\n";
+  std::cout << "(R) Remove a game title\n";
+  std::cout << "(L) List all game titles\n";
+  std::cout << "(Q) Quit the program\n";
+
+  while (input != 'Q')
+  {
+    std::cout << "\nInput: ";
+    std::cin >> input;
+    input = std::toupper(input);
+
+    if (input == 'A')
+    {
+      std::cout << "What game would you like to add? ";
+      std::getline(std::cin >> std::ws, game_title);
+      games.push_back(game_title);
+
+      std::cout << "\nYour games:\n";
+      for (iter = games.begin(); iter < games.end(); iter++)
+      {
+        std::cout << *iter << std::endl;
+      }
+    }
+  }
+
+  return 0;
 }
