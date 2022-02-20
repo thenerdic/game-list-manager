@@ -12,7 +12,6 @@
 int main()
 {
   std::vector<std::string> games; // vector to store game titles
-  //std::vector<std::string>::iterator myIterator; commented out till I find out if I need it or not
   std::vector<std::string>::const_iterator iter;
   std::string game_title;
   char input; // get player input
