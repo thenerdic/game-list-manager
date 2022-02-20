@@ -24,6 +24,7 @@ int main()
   std::cout << "(L) List all game titles\n";
   std::cout << "(Q) Quit the program\n";
 
+  // main loop
   while (input != 'Q')
   {
     std::cout << "\nInput: ";
@@ -36,6 +37,7 @@ int main()
       std::getline(std::cin >> std::ws, game_title);
       games.push_back(game_title);
 
+      std::cout << "\033[H\033[2J\033[3J";
       std::cout << "\nYour games:\n";
       for (iter = games.begin(); iter < games.end(); iter++)
       {
@@ -48,11 +50,28 @@ int main()
       std::getline(std::cin >> std::ws, game_title);
       games.erase(std::remove(games.begin(), games.end(), game_title), games.end());
 
+      std::cout << "\033[H\033[2J\033[3J";
       std::cout << "\nYour games:\n";
       for (iter = games.begin(); iter < games.end(); iter++)
       {
         std::cout << *iter << std::endl;
       }
+    }
+    else if (input == 'L')
+    {
+      std::cout << "\033[H\033[2J\033[3J";
+      std::cout << "\nYour games:\n";
+      for (iter = games.begin(); iter < games.end(); iter++)
+      {
+        std::cout << *iter << std::endl;
+      }
+    }
+    else if (input == 'Q')
+    {
+      break;
+    }
+    else {
+      std::cout << "Invalid Option!\n";
     }
   }
 
