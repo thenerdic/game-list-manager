@@ -12,7 +12,7 @@
 int main()
 {
   std::vector<std::string> games; // vector to store game titles
-  //std::vector<std::string>::iterator myIterator;
+  //std::vector<std::string>::iterator myIterator; commented out till I find out if I need it or not
   std::vector<std::string>::const_iterator iter;
   std::string game_title;
   char input; // get player input
@@ -32,9 +32,21 @@ int main()
 
     if (input == 'A')
     {
-      std::cout << "What game would you like to add? ";
+      std::cout << "What game would you like to add?: ";
       std::getline(std::cin >> std::ws, game_title);
       games.push_back(game_title);
+
+      std::cout << "\nYour games:\n";
+      for (iter = games.begin(); iter < games.end(); iter++)
+      {
+        std::cout << *iter << std::endl;
+      }
+    }
+    else if (input == 'R')
+    {
+      std::cout << "What game would you like to remove?: ";
+      std::getline(std::cin >> std::ws, game_title);
+      games.erase(std::remove(games.begin(), games.end(), game_title), games.end());
 
       std::cout << "\nYour games:\n";
       for (iter = games.begin(); iter < games.end(); iter++)
