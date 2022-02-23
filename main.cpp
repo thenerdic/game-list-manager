@@ -14,7 +14,7 @@ int main()
   std::vector<std::string> games; // vector to store game titles
   std::vector<std::string>::const_iterator iter;
   std::string game_title;
-  char input; // get player input
+  char input{}; // get player input
 
   // main menu
   std::cout << "\t\tGame Title Manager\n\n"; 
