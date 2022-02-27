@@ -8,6 +8,7 @@
 #include <string>
 #include <algorithm>
 #include <cctype>
+#include <fstream>
 
 int main()
 {
@@ -21,6 +22,7 @@ int main()
   std::cout << "(A) Add a game title\n";
   std::cout << "(R) Remove a game title\n";
   std::cout << "(L) List all game titles\n";
+  std::cout << "(O) Output game to a txt file\n";
   std::cout << "(Q) Quit the program\n";
 
   // main loop
@@ -64,6 +66,12 @@ int main()
       {
         std::cout << *iter << std::endl;
       }
+    }
+    else if (input == 'O')
+    {
+      std::ofstream output("output.txt");
+      for (const auto &e : games) output << e << "\n";
+      std::cout << "Adding contents to output.txt\n";
     }
     else if (input == 'Q')
     {
