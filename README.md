@@ -10,4 +10,4 @@ A program that lets you create, remove, and list game titles
 
 ## Backlog
 
-- Be able to create a text file with the list of games
+ - [x] Be able to create a text file with the list of games
